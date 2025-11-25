@@ -1,19 +1,21 @@
-function raspar(doc){
-    let noticia = doc.querySelectorAll('._evg')
+function raspar(doc) {
+    let noticia = doc.querySelectorAll('.post-title.font-title')
+
+    console.log("Itens encontrados:", noticia.length)
     let ul = document.createElement('ul')
     noticia.forEach(element => {
         let li = document.createElement('li')
         li.classList.add("item-noticia")
         li.innerHTML = element.innerHTML
         ul.appendChild(li)
+    })
 
-  });
-  document.body.appendChild(ul)
+    document.body.appendChild(ul)
 }
 
 
 function scraping(){
-    fetch("https://proxy.corsfix.com/?https://g1.globo.com/globonews/")
+    fetch("https://proxy.corsfix.com/?https://manhuaus.com/")
     .then(response => {
         if(!response.ok){
             throw new Error("Chamada HTTP Falhou")
